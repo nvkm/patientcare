@@ -14,6 +14,13 @@ A frontend-only patient registration application built with React, TypeScript, a
 - Support for multiple browser tabs
 - Modern, responsive UI using Material-UI
 
+## Demo Video
+
+
+https://github.com/user-attachments/assets/d6fd4137-17da-4292-b9f7-7790d5ac3027
+
+
+
 ## Prerequisites
 
 - Node.js (v21 or higher)
