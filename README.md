@@ -92,34 +92,6 @@ src/
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 
-## Deployment
-
-The application can be deployed to any static hosting service like Vercel, Netlify, or GitHub Pages.
-
-### Deploying to Vercel
-
-1. Install Vercel CLI:
-
-```bash
-npm install -g vercel
-```
-
-2. Deploy the application:
-
-```bash
-vercel
-```
-
-### Deploying to Netlify
-
-1. Build the application:
-
-```bash
-npm run build
-```
-
-2. Deploy the `dist` directory to Netlify using their dashboard or CLI.
-
 ## License
 
 MIT
