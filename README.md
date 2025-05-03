@@ -2,6 +2,7 @@
 
 A frontend-only patient registration application built with React, TypeScript, and Pglite for local data storage. This application allows users to register new patients, manage patient records, and search through patient data using SQL queries.
 
+## Live Demo : https://patientcare-kappa.vercel.app/
 ## Features
 
 - Register new patients with detailed information
