@@ -2,7 +2,8 @@
 
 A frontend-only patient registration application built with React, TypeScript, and Pglite for local data storage. This application allows users to register new patients, manage patient records, and search through patient data using SQL queries.
 
-## Live Demo : https://patientcare-kappa.vercel.app/
+#### Live Demo : https://patientcare-kappa.vercel.app/
+
 ## Features
 
 - Register new patients with detailed information
@@ -15,7 +16,7 @@ A frontend-only patient registration application built with React, TypeScript, a
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (v21 or higher)
 - npm (v6 or higher)
 
 ## Installation
@@ -51,9 +52,9 @@ The application will be available at `http://localhost:5173`
    - Last Name
    - Date of Birth
    - Gender
-   - Email (optional)
-   - Phone (optional)
-   - Address (optional)
+   - Email 
+   - Phone 
+   - Address 
 
 2. Click the "Register Patient" button to save the patient record.
 
@@ -79,12 +80,19 @@ The application uses Pglite for local data storage, which means:
 ```
 src/
   ├── components/
-  │   ├── PatientForm.tsx    # Patient registration form
-  │   └── PatientList.tsx    # Patient records table
+  │   ├── Dashboard.tsx           # Main dashboard view
+  │   ├── PatientForm.tsx         # Patient registration form
+  │   ├── PatientList.tsx         # Patient records table
+  │   ├── SideNav.tsx             # Sidebar navigation menu
+  │   └── SqlQuerySearch.tsx      # UI for running SQL queries on local DB
   ├── services/
-  │   └── database.ts        # Pglite database operations
-  ├── App.tsx               # Main application component
-  └── main.tsx             # Application entry point
+  │   └── database.ts             # PGlite database operations and setup
+  ├── App.css                     # Global styles for App component
+  ├── App.tsx                     # Main application component
+  ├── index.css                   # Base CSS styling
+  ├── main.tsx                    # Application entry point
+  └── vite-env.d.ts               # Type declarations for Vite environment
+
 ```
 
 ### Available Scripts
