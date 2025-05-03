@@ -1,54 +1,133 @@
-# React + TypeScript + Vite
+# Patient Registration System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend-only patient registration application built with React, TypeScript, and Pglite for local data storage. This application allows users to register new patients, manage patient records, and search through patient data using SQL queries.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Register new patients with detailed information
+- View and manage patient records
+- Search patients using SQL queries
+- Edit and delete patient records
+- Data persistence across page refreshes
+- Support for multiple browser tabs
+- Modern, responsive UI using Material-UI
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd patient-registration-system
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Usage
+
+### Registering a New Patient
+
+1. Fill out the patient registration form with the required information:
+
+   - First Name
+   - Last Name
+   - Date of Birth
+   - Gender
+   - Email (optional)
+   - Phone (optional)
+   - Address (optional)
+
+2. Click the "Register Patient" button to save the patient record.
+
+### Managing Patient Records
+
+- View all registered patients in the table below the registration form
+- Use the search bar to filter patients by name, email, or phone number
+- Click the edit icon to modify patient information
+- Click the delete icon to remove a patient record
+
+### Data Persistence
+
+The application uses Pglite for local data storage, which means:
+
+- Patient data persists across page refreshes
+- Data is stored in the browser's IndexedDB
+- Multiple browser tabs can access the same data
+
+## Development
+
+### Project Structure
+
+```
+src/
+  ├── components/
+  │   ├── PatientForm.tsx    # Patient registration form
+  │   └── PatientList.tsx    # Patient records table
+  ├── services/
+  │   └── database.ts        # Pglite database operations
+  ├── App.tsx               # Main application component
+  └── main.tsx             # Application entry point
+```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
+## Deployment
+
+The application can be deployed to any static hosting service like Vercel, Netlify, or GitHub Pages.
+
+### Deploying to Vercel
+
+1. Install Vercel CLI:
+
+```bash
+npm install -g vercel
+```
+
+2. Deploy the application:
+
+```bash
+vercel
+```
+
+### Deploying to Netlify
+
+1. Build the application:
+
+```bash
+npm run build
+```
+
+2. Deploy the `dist` directory to Netlify using their dashboard or CLI.
+
+## License
+
+MIT
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
