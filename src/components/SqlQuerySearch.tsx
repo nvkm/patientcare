@@ -22,7 +22,6 @@ import {
   FormControl,
   InputLabel,
   Grid,
-  Chip,
   Card,
   CardContent,
   CardActionArea,
@@ -31,7 +30,6 @@ import {
   Search as SearchIcon,
   Refresh as RefreshIcon,
   Code as CodeIcon,
-  FilterList as FilterIcon,
   QueryStats as QueryStatsIcon,
 } from "@mui/icons-material";
 import { searchPatients, getAllPatients } from "../services/database";
@@ -207,6 +205,8 @@ const SqlQuerySearch: React.FC = () => {
                 email: "",
                 phone: "",
                 address: "",
+                created_at: new Date(0), // Default value
+                updated_at: new Date(0), // Default value
               })
             );
           }
@@ -235,7 +235,7 @@ const SqlQuerySearch: React.FC = () => {
     loadAllPatients();
   };
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
 

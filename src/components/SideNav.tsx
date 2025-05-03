@@ -9,7 +9,6 @@ import {
   Box,
   Tooltip,
   useTheme,
-  useMediaQuery,
   Typography,
 } from "@mui/material";
 import {
@@ -33,7 +32,6 @@ const SideNav: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleNavigation = (path: string) => {

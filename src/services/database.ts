@@ -224,7 +224,7 @@ db.init().then(() => {
 
 export type Patient = Omit<
   PatientDB["patients"]["value"],
-  "id" | "created_at" | "updated_at" | "age"
+  "created_at" | "updated_at" | "age"
 >;
 
 export const addPatient = async (patient: Patient) => {

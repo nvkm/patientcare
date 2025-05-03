@@ -57,7 +57,7 @@ const PatientList: React.FC = () => {
     setSearchTerm(event.target.value);
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this patient?")) {
       try {
         await deletePatient(id);
@@ -85,9 +85,9 @@ const PatientList: React.FC = () => {
     }
   };
 
-  const handleSqlResults = (results: any[]) => {
-    setPatients(results as Patient[]);
-  };
+  // const handleSqlResults = (results: any[]) => {
+  //   setPatients(results as Patient[]);
+  // };
 
   return (
     <Box>
@@ -114,7 +114,7 @@ const PatientList: React.FC = () => {
           sx={{ mb: 3 }}
         />
       ) : (
-        <SqlQuerySearch onResults={handleSqlResults} />
+        <SqlQuerySearch />
       )}
 
       <TableContainer component={Paper}>

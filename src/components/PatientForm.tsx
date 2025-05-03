@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Box,
   TextField,
@@ -24,6 +24,7 @@ import { format, isValid, subYears } from "date-fns";
 import { DateValidationError } from "@mui/x-date-pickers";
 
 const initialPatientState: Patient = {
+  id: "",
   first_name: "",
   last_name: "",
   date_of_birth: "",
@@ -110,7 +111,6 @@ const PatientForm: React.FC = () => {
   );
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const datePickerRef = useRef<HTMLDivElement>(null);
 
   const validateEmail = (email: string) => {
     if (!email) return true; // Email is optional
@@ -167,13 +167,15 @@ const PatientForm: React.FC = () => {
   };
 
   const handleDateChange = (
-    value: Date | null,
-    context: { validationError: DateValidationError }
+    value: unknown,
+    _context: { validationError: DateValidationError }
   ) => {
-    setSelectedDate(value);
+    const dateValue = value as Date | null;
+    setSelectedDate(dateValue);
 
-    if (value && isValid(value)) {
-      const formattedDate = format(value, "yyyy-MM-dd");
+    if (dateValue && isValid(dateValue)) {
+      const formattedDate = format(dateValue, "yyyy-MM-dd");
+      
       setPatient((prev) => ({ ...prev, date_of_birth: formattedDate }));
 
       if (!validateDateOfBirth(formattedDate)) {
@@ -346,7 +348,6 @@ const PatientForm: React.FC = () => {
                   minDate={subYears(new Date(), 120)}
                   disableFuture
                   format="dd/MM/yyyy"
-                  clearable
                   closeOnSelect={false}
                   showDaysOutsideCurrentMonth
                   fixedWeekNumber={6}
